@@ -28,6 +28,9 @@ typedef void (^LOTAnimationCompletionBlock)(BOOL animationFinished);
 /// Loads an animation from a specific file path. WARNING Do not use a web URL for file path.
 + (nonnull instancetype)animationWithFilePath:(nonnull NSString *)filePath NS_SWIFT_NAME(init(filePath:));
 
+/// Loads an animation from a specific file path. WARNING Do not use a web URL for file path. (with tint color)
++ (nonnull instancetype)animationWithFilePath:(nonnull NSString *)filePath withTint:(nonnull UIColor *)color NS_SWIFT_NAME(init(filePath:color:));
+
 /// Creates an animation from the deserialized JSON Dictionary, images are loaded from the specified bundle
 + (nonnull instancetype)animationFromJSON:(nullable NSDictionary *)animationJSON inBundle:(nullable NSBundle *)bundle NS_SWIFT_NAME(init(json:bundle:));
 
@@ -53,6 +56,8 @@ typedef void (^LOTAnimationCompletionBlock)(BOOL animationFinished);
 - (void)setAnimationFromJSON:(nonnull NSDictionary *)animationJSON inBundle:(nullable NSBundle *)bundle NS_SWIFT_NAME(setAnimation(json:bundle:));
 
 - (void)setAnimationWithFilePath:(nonnull NSString *)filePath;
+
+- (void)setAnimationWithFilePath:(nonnull NSString *)filePath withTint:(nonnull UIColor *)color;
 
 /// Flag is YES when the animation is playing
 @property (nonatomic, readonly) BOOL isAnimationPlaying;
